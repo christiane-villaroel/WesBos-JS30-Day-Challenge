@@ -21,4 +21,4 @@
 
 ## End Result
 
-![Drumkit](/Screenshot%202023-03-04%20124200.png "Drum Kit")
+![Drumkit](/01%20-%20JavaScript%20Drum%20Kit/DrumKit.png)
