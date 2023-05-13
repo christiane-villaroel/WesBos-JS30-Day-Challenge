@@ -44,7 +44,6 @@
       transition:
         font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
         flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
-        width 2s,
         background 0.2s;
       font-size: 20px;
       background-size: cover;
@@ -56,6 +55,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      flex:1 ;
     }
     .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
     .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
@@ -83,21 +83,26 @@
       justify-content: space-around;
       margin: 40% 10px;
     }
+    .panel p:nth-child(1){
+      transform: translateY(-1000px);
+    }
     .panel p:nth-child(2) {
       font-size: 4em;
     }
-
+    .panel p:last-child{
+      transform: translateY(1000px);
+    }
+    
     .panel.open {
       font-size: 40px;
+      flex-grow: 2;
     }
-    .open{
-     width: 40%;
-    }
+    
     .open p:nth-child(1){
-      transform: translateY(30px) rotate(20deg);
+      transform: translateY(-100px);
     }
     .open p:last-child{
-      bottom: 0%;
+      transform: translateY(100px);
     }
 
   </style>
@@ -134,9 +139,16 @@
   <script>
     let panelsDiv = [1,2,3,4,5].map((panel)=>document.querySelector(`.panel${panel}`));
     panelsDiv.forEach((panel)=>{
-      return panel.addEventListener("click",()=>{
-       return panel.classList.add("open")
-      })
+      const clicked = ()=>{
+        if(panel.classList.contains("open")){
+          return panel.classList.remove("open");
+          return 
+        }else if(!panel.classList.contains("open")){
+          return panel.classList.add("open");
+        }
+        
+      }
+      return panel.addEventListener("click",clicked)
     })
 
 
